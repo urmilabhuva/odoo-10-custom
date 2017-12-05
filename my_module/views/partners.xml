@@ -1,0 +1,50 @@
+<odoo>
+    <data>
+        <!-- Add instructor field to existing view -->
+       <record model="ir.ui.view" id="partner_school_form_view">
+            <field name="name">partner.school</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <div name="button_box" position="attributes" >
+                    <attribute name="invisible">True</attribute>
+                </div>
+                <xpath expr="/form/sheet/group/group/field[@name='category_id']" position="attributes">
+                    <attribute name="attrs">{'invisible': [('school','=', True)]}</attribute>
+                </xpath>
+                <notebook position="inside">
+                    <page string="Schools">
+                        <group>
+                            <field name="school"/>
+                        </group>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+
+
+
+
+
+        <record model="ir.actions.act_window" id="contact_list_action">
+            <field name="name">Contacts</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('school', '=', 'True')]</field>
+        </record>
+        <menuitem id="configuration_menu" name="Configuration"
+                  parent="main_admission_menu"/>
+        <menuitem id="contact_menu" name="Schools"
+                  parent="configuration_menu"
+                  action="contact_list_action"/>
+
+        <!-- <record model="res.partner.category" id="teacher1">
+            <field name="name">Teacher / Level 1</field>
+        </record>
+        <record model="res.partner.category" id="teacher2">
+            <field name="name">Teacher / Level 2</field>
+        </record>
+ -->
+    </data>
+</odoo>

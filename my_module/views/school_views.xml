@@ -1,0 +1,151 @@
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="registration_school_form_view">
+			<field name="name">school.form</field>
+    		<field name="model">school.register</field>
+    		<field name="arch" type="xml">
+    		    <form string="School Form">
+                    <sheet>
+                        <group>
+                            <field name="school_name"/>
+                            <field name="course_ids" widget="many2many_tags"/>
+                            <field name="total_seat"/>
+                            
+
+
+                        </group>                        
+                    </sheet>
+                </form>
+    		</field>
+		</record>
+		<record model="ir.ui.view" id="registration_tree_view">
+            <field name="name">school.tree</field>
+            <field name="model">school.register</field>
+            <field name="arch" type="xml">
+                <tree string="School Tree">
+                    <field name="school_name"/>
+                    <field name="course_ids"/>
+                    <field name="total_seat"/>
+                    
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="school_list_action">
+            <field name="name">School</field>
+            <field name="res_model">school.register</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first course
+                </p>
+            </field>
+        </record> 
+
+
+
+        <menuitem id="main_admission_menu" name="Admission"/>
+        <menuitem id="admission_menu" name="Admission" parent="main_admission_menu"/>
+        <menuitem id="school_menu" name="School" parent="admission_menu" action="school_list_action"/>
+
+        <record model="ir.ui.view" id="course_form_view">
+			<field name="name">course.form</field>
+    		<field name="model">course.course</field>
+    		<field name="arch" type="xml">
+    		    <form string="Course Form">
+                    <sheet>
+                        <group>
+
+                            <field name="name"/>
+                            <field name="min_merit"/>
+                            <field name="no_seat"/>
+
+                        </group> 
+                       
+                    </sheet>
+                </form>
+    		</field>
+		</record>
+		<record model="ir.ui.view" id="course_tree_view">
+            <field name="name">course.tree</field>
+            <field name="model">course.course</field>
+            <field name="arch" type="xml">
+                <tree string="Course Tree">
+                    <field name="name"/>
+                    <field name="min_merit"/>
+                    <field name="no_seat"/>
+                    <!-- <field name="address"/> -->
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="course_list_action">
+            <field name="name">Course</field>
+            <field name="res_model">course.course</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first course
+                </p>
+            </field>
+        </record> 
+       
+        
+        <menuitem id="course_menu" name="Course" parent="admission_menu" action="course_list_action"/>
+
+        <record model="ir.ui.view" id="registration_student_form_view">
+            <field name="name">student.form</field>
+            <field name="model">student.register</field>
+            <field name="arch" type="xml">
+                <form string="Student Registration Form">
+                    <sheet>
+                        <group>
+                            <group string="Student Detail">
+                                <field name="full_name"/>
+                                <field name="merit_marks"/>
+                            </group>                    
+                            <group string="Admission Apply">
+                                <!-- <field name="student"/> -->
+                                <field name="course_admsn"/>
+                                <field name="preference" />
+                                <!-- domain="[('course_ids', '=', course_admsn)] -->
+                            </group>
+                        </group>
+                                    
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="registration_student_tree_view">
+            <field name="name">student.tree</field>
+            <field name="model">student.register</field>
+            <field name="arch" type="xml">
+                <tree string="Student Registration Tree">
+                    <field name="full_name"/>
+                    <field name="merit_marks"/>
+                    <field name="course_admsn"/>
+                    <field name="preference"/>
+
+                    
+                </tree>
+            </field>
+        </record>
+
+        <record id="registration_form_action" model="ir.actions.act_window">
+            <field name="name">Students</field>
+            <field name="res_model">student.register</field>
+            <field name="view_mode">tree,form</field>
+           <!--  <field name="domain">[('date_start','&gt;=', context_today().strftime('%Y-%m-%d')), ('date_end','&lt;=',context_today().strftime('%Y-%m-%d'))]</field> -->
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first Student
+                </p>
+            </field>
+        </record>
+
+       <menuitem id="student_menu" name="Registration" parent="admission_menu" action="registration_form_action"/>
+
+
+
+
+	</data>
+</odoo>
