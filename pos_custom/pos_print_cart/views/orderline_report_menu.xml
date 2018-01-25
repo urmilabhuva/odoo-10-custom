@@ -1,0 +1,14 @@
+<odoo>
+
+<report
+        id="action_orderline_report"
+        model="pos.order"
+        name="pos_print_cart.report_orderlines"
+        file="pos_print_cart.report_orderlines"
+        report_type="qweb-pdf"
+        menu="True"
+        string="orderline_report"
+        
+    />
+
+</odoo>

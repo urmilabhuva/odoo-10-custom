@@ -1,0 +1,33 @@
+<odoo>
+
+<template id="report_orderlines">
+    
+        <t t-call="report.html_container">
+            
+                <t t-foreach="docs" t-as="doc">
+                    <div class="page">
+                        
+                        <div class="container">
+                            <div class="row mt16 mb16 text-left text-muted">
+                                <div class="#">
+                                    <div class="#">
+                                        <h3 style="color:#0085ba;">Orderline</h3>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                            
+                           
+                            
+                           
+                            
+                            
+                        </div>
+                    </div>
+                </t>
+            
+        </t>
+    
+</template>
+
+</odoo>

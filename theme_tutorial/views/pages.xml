@@ -1,0 +1,30 @@
+<odoo>
+<data>
+<!-- === Services Page === -->
+<template name="Services" id="website.consulting" page="True">
+  <t t-call="website.layout">
+   <div id="wrap" class="oe_structure">
+     <div class="container">
+       <h1>Our Consulting</h1>
+       <ul class="consulting">
+         <li>Cloud Hosting</li>
+         <li>Support</li>
+         <li>Unlimited space</li>
+       </ul>
+     </div>
+   </div>
+  </t>
+</template>
+
+<record id="consulting_page_link" model="website.menu">
+  <field name="name">Consulting</field>
+  <field name="url">/page/consulting</field>
+  <field name="parent_id" ref="website.main_menu" />
+  <field name="sequence" type="int">90</field>
+</record>
+
+
+
+
+</data>
+</odoo>

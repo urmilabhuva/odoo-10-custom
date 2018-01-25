@@ -1,0 +1,18 @@
+<odoo>
+  <template id="report_saleorder_document" inherit_id="sale.report_saleorder_document">
+  	<xpath expr="//th[2]" position="after">
+              <th class="text-right">Length</th>
+              <th class="text-right">Total Length</th>
+              
+          </xpath>
+      <xpath expr="//tr/td[2]" position="after">
+      	<td class="text-right">
+         		<span t-field="l.length"/>
+        </td>
+        <td class="text-right" t-if="l.total_length">
+         		<span t-field="l.total_length"/>
+        </td>
+     	</xpath>
+
+  </template>
+</odoo>

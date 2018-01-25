@@ -1,0 +1,7 @@
+<odoo>
+    <data>
+        <record id="group_hr_applicant" model="res.groups">
+            <field name="name">Job Applicant</field>
+        </record>
+    </data>
+</odoo>
